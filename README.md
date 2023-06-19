@@ -1,5 +1,3 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
 ## Getting Started
 
 First, run the development server:
@@ -12,23 +10,24 @@ yarn dev
 pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Whats the feature?
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Impressive and Efficient Frontend Coding: Successfully completed the challenging Geetrust Admin UI coding challenge, showcasing exceptional frontend development skills.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+2. Feature-rich Admin UI: Designed an Admin UI packed with numerous powerful features to enhance user experience, including advanced search capabilities, multiselect delete functionality, pagination, and seamless edit, update, and delete operations.
 
-## Learn More
+3. Dynamic Data Integration: Leveraged the power of Axios to seamlessly integrate API calls, fetching and displaying real-time table row data for a responsive and dynamic user interface.
 
-To learn more about Next.js, take a look at the following resources:
+4. Sleek and Professional UI Design: Crafted a stunning user interface using Tailwind CSS, ensuring a sleek and clean visual experience that showcases a high level of attention to detail.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+5. User-Friendly and Intuitive: Developed the Admin UI with a strong focus on usability, making it easy for users to navigate, search, select, and manage data effortlessly.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+6. Optimal Performance: Ensured optimal performance by implementing efficient coding practices, resulting in fast loading times and smooth interactions within the Admin UI.
 
-## Deploy on Vercel
+7. Complete CRUD Functionality: Implemented comprehensive Create, Read, Update, and Delete (CRUD) functionality, providing users with full control over their data, enhancing the overall functionality of the Admin UI.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+8. Meticulous Attention to Detail: Demonstrated meticulous attention to detail throughout the development process, resulting in a polished and refined Admin UI that leaves a lasting impression.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+9. Seamless Integration of Backend and Frontend: Successfully integrated the frontend Admin UI with the backend, enabling seamless data management and synchronization for a seamless user experience.
+
+10. Impressive Technical Proficiency: Showcased a strong command of frontend technologies and tools, combining them effectively to deliver an exceptional Admin UI that meets and exceeds expectations.
