@@ -23,7 +23,7 @@ const Search = (props) => {
           name="search"
           value={searchQuery}
           onChange={handleSearchChange}
-          
+      
         />
       </label>
     </div>

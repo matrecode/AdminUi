@@ -12,6 +12,7 @@ const Table = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedRecords, setSelectedRecords] = useState([]);
   const [editMode, setEditMode] = useState(null);
+  const [currentPage, setCurrentPage] = useState(1);
   // to prevent automatic save
   const [tempData, setTempData] = useState(null);
   const isRowSelected = (rowId) => selectedRecords.includes(rowId);
@@ -27,17 +28,17 @@ const Table = () => {
 
   const handleSearch = (query) => {
     setSearchQuery(query);
+
     // setCurrentPage(1)
   };
-  
 
   //   Pagination functionality
-  const [currentPage, setCurrentPage] = useState(1);
+
   const recordsPerPage = 10;
   const totalPages = Math.ceil(filteredRecords.length / recordsPerPage);
   const startIndex = (currentPage - 1) * recordsPerPage;
   const endIndex = startIndex + recordsPerPage;
-  let currentUsers = filteredRecords.slice(startIndex, endIndex);
+  var currentUsers = filteredRecords.slice(startIndex, endIndex);
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
     console.log(currentPage);
@@ -131,9 +132,9 @@ const Table = () => {
     setEditMode(null);
   };
 
-
   // Getting data from an api using axios
   useEffect(() => {
+    document.title = "Admin UI Coding Challenge";
     const fetchData = async () => {
       try {
         const response = await axios.get(
@@ -150,7 +151,7 @@ const Table = () => {
   return (
     <div>
       <div>
-        <Search onSearch={handleSearch} />
+        {currentPage == 1 ? <Search onSearch={handleSearch} /> : <p></p>}
       </div>
       <div className="relative overflow-x-auto mt-3">
         <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
@@ -199,42 +200,42 @@ const Table = () => {
                   </div>
                 </th>
 
-                <td className="px-6 py-4">
+                <td className="px-6 py-4 text-black">
                   {editMode === index ? (
                     <input
-                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                       type="text"
-                      value={tempData ? tempData.name : ''}
+                      value={tempData ? tempData.name : ""}
                       onChange={(e) =>
-                        handleInputChange(index, 'name', e.target.value)
+                        handleInputChange(index, "name", e.target.value)
                       }
                     />
                   ) : (
                     user.name
                   )}
                 </td>
-                <td className="px-6 py-4">
+                <td className="px-6 py-4 text-black ">
                   {editMode === index ? (
                     <input
-                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                       type="text"
-                      value={tempData ? tempData.email : ''}
+                      value={tempData ? tempData.email : ""}
                       onChange={(e) =>
-                        handleInputChange(index, 'email', e.target.value)
+                        handleInputChange(index, "email", e.target.value)
                       }
                     />
                   ) : (
                     user.email
                   )}
                 </td>
-                <td className="px-6 py-4">
+                <td className="px-6 py-4 text-black">
                   {editMode === index ? (
                     <input
-                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                       type="text"
-                      value={tempData ? tempData.role : ''}
+                      value={tempData ? tempData.role : ""}
                       onChange={(e) =>
-                        handleInputChange(index, 'role', e.target.value)
+                        handleInputChange(index, "role", e.target.value)
                       }
                     />
                   ) : (
@@ -271,7 +272,7 @@ const Table = () => {
           </tbody>
         </table>
       </div>
-      <div className="flex flex-row justify-between mt-3">
+      <div className="flex md:flex-row sm:flex-col sm:gap-3 sm:items-center md:justify-between mt-3">
         <div>
           {selectedRecords.length > 0 && (
             <button

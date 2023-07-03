@@ -7,8 +7,8 @@ import Table from "@/components/Table.jsx";
 export default function Home() {
   return (
     <main className=" flex flex-col justify-center items-center ">
-      <div className=" md:container p-5 ">
-        <div className="max-w-[70%] mx-auto flex flex-col gap-4">
+      <div className=" container md:container md:p-5 sm:p-1">
+        <div className="max-w-[100%] mx-auto flex flex-col gap-4 p-2">
           <div>
             <Table />
           </div>
