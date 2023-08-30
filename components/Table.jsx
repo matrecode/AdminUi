@@ -13,6 +13,7 @@ const Table = () => {
   const [selectedRecords, setSelectedRecords] = useState([]);
   const [editMode, setEditMode] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
+  const [error, setError] = useState(null);
   // to prevent automatic save
   const [tempData, setTempData] = useState(null);
   const isRowSelected = (rowId) => selectedRecords.includes(rowId);
@@ -49,7 +50,7 @@ const Table = () => {
   };
 
   const handlePageChangePrevious = (pageNumber) => {
-    if (pageNumber > 1) setCurrentPage(pageNumber - 1);
+    if (pageNumber > 1) setCurrentPage(pageNumber - 1)
   };
 
   const handlePageChangeLast = (pageNumber) => {
@@ -132,6 +133,8 @@ const Table = () => {
     setEditMode(null);
   };
 
+  
+
   // Getting data from an api using axios
   useEffect(() => {
     document.title = "Admin UI Coding Challenge";
@@ -143,18 +146,22 @@ const Table = () => {
         setData(response.data);
       } catch (error) {
         console.log("Error in fetching data: ", error);
+        setError("An error occurred while fetching data.");
       }
     };
 
     fetchData();
   }, []);
   return (
-    <div>
-      <div>
+    <div className="overflow-hidden">
+     { error?(<div className="bg-red-100 border border-red-400 text-red-700 px-4 py-2 rounded">
+            {error}
+          </div>):(<>
+            <div>
         {currentPage == 1 ? <Search onSearch={handleSearch} /> : <p></p>}
       </div>
       <div className="relative overflow-x-auto mt-3">
-        <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+        <table className="min-w-full divide-y divide-gray-200 text-sm text-left text-gray-500 dark:text-gray-400">
           <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
               <th scope="col" className="px-6 py-3">
@@ -272,9 +279,9 @@ const Table = () => {
           </tbody>
         </table>
       </div>
-      <div className="flex md:flex-row sm:flex-col sm:gap-3 sm:items-center md:justify-between mt-3">
+      <div className="flex lg:flex-row md:flex-row sm:flex-col lg:justify-between md:justify-bwtween sm:justify-center lg:items-between md:items-bwtween sm:items-center gap-2 my-2 flex-wrap">
         <div>
-          {selectedRecords.length > 0 && (
+          
             <button
               type="button"
               onClick={handleDelete}
@@ -285,7 +292,7 @@ const Table = () => {
                 {selectedRecords.length}
               </span>
             </button>
-          )}
+          
         </div>
         <div>
           <Pagination
@@ -298,7 +305,7 @@ const Table = () => {
             onPageChangeNext={handlePageChangeNext}
           />
         </div>
-      </div>
+      </div></>)}
     </div>
   );
 };
